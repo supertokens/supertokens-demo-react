@@ -38,7 +38,7 @@ export default function SuccessView(props) {
             <div style={{ height: "10px" }} />
             <div style={{ height: "10px" }} />
             <div style={{ height: "10px" }} />
-            <a href="https://github.com/supertokens/supertokens-demo-react" target="_blank">View the code on GitHub</a>
+            <a href="https://github.com/supertokens/supertokens-demo-react" target="_blank" rel="noreferrer">View the code on GitHub</a>
         </div>
     );
 }

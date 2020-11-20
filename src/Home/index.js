@@ -23,7 +23,7 @@ export default function Home() {
             history.push("/auth");
         }
 
-    }, []);
+    }, [history]);
 
 
     if (userId === undefined) {
