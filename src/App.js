@@ -25,7 +25,11 @@ SuperTokens.init({
     websiteDomain: getWebsiteDomain()
   },
   recipeList: [
-    EmailPassword.init(),
+    EmailPassword.init({
+      emailVerificationFeature: {
+        mode: "REQUIRED"
+      }
+    }),
     Session.init()
   ]
 });
@@ -39,7 +43,9 @@ function App() {
           <Switch>
             {getSuperTokensRoutesForReactRouterDom()}
             <Route path="/">
-              <Home />
+              <EmailPassword.EmailPasswordAuth>
+                <Home />
+              </EmailPassword.EmailPasswordAuth>
             </Route>
           </Switch>
         </div>

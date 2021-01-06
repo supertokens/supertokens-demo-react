@@ -15,12 +15,8 @@ export default function Home() {
     }
 
     useEffect(() => {
-
-        // if a session does not exist, we take the user to the auth page. Else we set state.
         if (Session.doesSessionExist()) {
             setUserId(Session.getUserId());
-        } else {
-            history.push("/auth");
         }
 
     }, [history]);
