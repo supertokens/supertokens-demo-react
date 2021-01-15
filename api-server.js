@@ -56,4 +56,8 @@ app.get("/sessioninfo", Session.verifySession(), async (req, res) => {
 
 app.use(supertokens.errorHandler());
 
+app.use((err, req, res, next) => {
+    res.status(500).send("Internal error: " + err.message);
+})
+
 app.listen(apiPort, () => console.log(`API Server listening on port ${apiPort}`));
