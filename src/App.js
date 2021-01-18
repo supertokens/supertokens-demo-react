@@ -1,10 +1,13 @@
-import './App.css';
-import SuperTokens, { getSuperTokensRoutesForReactRouterDom } from "supertokens-auth-react"
+import "./App.css";
+import SuperTokens, {
+  getSuperTokensRoutesForReactRouterDom,
+} from "supertokens-auth-react";
 import EmailPassword from "supertokens-auth-react/recipe/emailpassword";
 import Session from "supertokens-auth-react/recipe/session";
 import Home from "./Home";
 import { Switch, BrowserRouter as Router, Route } from "react-router-dom";
 import Footer from "./Footer";
+import { sendButtonAnalytics } from "./utils";
 
 export function getApiDomain() {
   const apiPort = process.env.REACT_APP_API_PORT || 3001;
@@ -14,7 +17,8 @@ export function getApiDomain() {
 
 export function getWebsiteDomain() {
   const websitePort = process.env.REACT_APP_WEBSITE_PORT || 3000;
-  const websiteUrl = process.env.REACT_APP_WEBSITE_URL || `http://localhost:${websitePort}`;
+  const websiteUrl =
+    process.env.REACT_APP_WEBSITE_URL || `http://localhost:${websitePort}`;
   return websiteUrl;
 }
 
@@ -22,18 +26,29 @@ SuperTokens.init({
   appInfo: {
     appName: "SuperTokens Demo App",
     apiDomain: getApiDomain(),
-    websiteDomain: getWebsiteDomain()
+    websiteDomain: getWebsiteDomain(),
   },
   recipeList: [
     EmailPassword.init({
-      emailVerificationFeature: {
-        mode: "REQUIRED"
-      }
+      onHandleEvent(context) {
+        switch (context.action) {
+          case "RESET_PASSWORD_EMAIL_SENT":
+            sendButtonAnalytics("page_demoapp_forgotpassword_resetlinksent")
+            break;
+          case "SIGN_IN_COMPLETE":
+            sendButtonAnalytics("button_demoapp_signin")
+            break;
+          case "SIGN_UP_COMPLETE":
+            sendButtonAnalytics("button_demoapp_signup")
+            break;
+          default:
+            break;
+        }
+      },
     }),
-    Session.init()
-  ]
+    Session.init(),
+  ],
 });
-
 
 function App() {
   return (
@@ -50,7 +65,7 @@ function App() {
           </Switch>
         </div>
         <Footer />
-      </Router >
+      </Router>
     </div>
   );
 }
