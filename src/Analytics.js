@@ -1,6 +1,3 @@
-import {useRef, useEffect} from 'react'
-import Session from "supertokens-auth-react/recipe/session";
-
 export function getAnalytics() {
   return new Promise((res, rej) => {
     let numberOfRetries = 20;
@@ -55,24 +52,3 @@ export async function sendPageViewAnalytics(
     version
   )
 }
-
-// export function usePageViewAnalytics() {
-//   const didMountRef = useRef(false);
-//   useEffect(() => {
-//     if (didMountRef.current) {
-//       (async function sendPageViewEvents() {
-//         async function sendEvents(eventName, meta) {
-//           await sendPageViewAnalytics(eventName, meta)
-//         }
-//         if (window.location.pathname === "/auth/reset-password") {
-//           await sendEvents("page_demoapp", { page_visited: "reset password" });
-//         }
-//         if (!Session.doesSessionExist() && window.location.pathname === "/auth") {
-//           await sendEvents("page_demoapp", { page_visited: "sign in up" })
-//         }
-//       })()
-//     } else {
-//       didMountRef.current = true
-//     }
-//   })
-// }
