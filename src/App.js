@@ -32,6 +32,9 @@ SuperTokens.init({
   },
   recipeList: [
     EmailPassword.init({
+      emailVerificationFeature: {
+        mode: "REQUIRED"
+      },
       onHandleEvent(context) {
         switch (context.action) {
           case "RESET_PASSWORD_EMAIL_SENT":
@@ -67,7 +70,7 @@ function App() {
             </Route>
           </Switch>
         </div>
-        <RouterPageViewAnalytics/>
+        <RouterPageViewAnalytics />
         <Footer />
       </Router>
     </div>
