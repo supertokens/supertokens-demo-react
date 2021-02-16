@@ -5,8 +5,8 @@
 
 ## See emailpassword recipe demo
 - [Code](https://github.com/supertokens/supertokens-demo-react/tree/emailpassword)
-- [Live demo](emailpassword.demo.supertokens.io)
+- [Live demo](https://emailpassword.demo.supertokens.io)
 
 ## See thirdparty recipe demo
 - [Code](https://github.com/supertokens/supertokens-demo-react/tree/thirdparty)
-- [Live demo](thirdparty.demo.supertokens.io)
+- [Live demo](https://thirdparty.demo.supertokens.io)
