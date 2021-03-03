@@ -1,6 +1,6 @@
 import './App.css';
 import SuperTokens, { getSuperTokensRoutesForReactRouterDom } from "supertokens-auth-react"
-import ThirdParty, { ThirdPartyAuth, Google, Github, Facebook } from "supertokens-auth-react/recipe/thirdparty";
+import ThirdPartyEmailPassword, { ThirdPartyEmailPasswordAuth, Google, Github, Facebook } from "supertokens-auth-react/recipe/thirdpartyemailpassword";
 import Session from "supertokens-auth-react/recipe/session";
 import Home from "./Home";
 import { Switch, BrowserRouter as Router, Route } from "react-router-dom";
@@ -25,13 +25,13 @@ SuperTokens.init({
     websiteDomain: getWebsiteDomain()
   },
   recipeList: [
-    ThirdParty.init({
+    ThirdPartyEmailPassword.init({
       signInAndUpFeature: {
         providers: [
           Github.init(),
           Google.init(),
 
-          // we have commented the below because our app domain (thirdparty.demo.supertokens.io) is not approved by Facebook since it's only a demo app.
+          // we have commented the below because our app domain (thirdpartyemailpassword.demo.supertokens.io) is not approved by Facebook since it's only a demo app.
           // Facebook.init()
         ]
       },
@@ -52,9 +52,9 @@ function App() {
           <Switch>
             {getSuperTokensRoutesForReactRouterDom()}
             <Route path="/">
-              <ThirdPartyAuth>
+              <ThirdPartyEmailPasswordAuth>
                 <Home />
-              </ThirdPartyAuth>
+              </ThirdPartyEmailPasswordAuth>
             </Route>
           </Switch>
         </div>

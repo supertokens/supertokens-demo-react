@@ -3,7 +3,7 @@ import Logout from "./Logout";
 import SuccessView from "./SuccessView";
 import Session from 'supertokens-auth-react/recipe/session';
 import { useHistory } from "react-router-dom";
-import { signOut } from "supertokens-auth-react/recipe/thirdparty";
+import { signOut } from "supertokens-auth-react/recipe/thirdpartyemailpassword";
 
 export default function Home() {
     const userId = Session.getUserId();

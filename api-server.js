@@ -5,7 +5,7 @@ const helmet = require("helmet");
 require('dotenv').config();
 let supertokens = require("supertokens-node");
 let Session = require("supertokens-node/recipe/session");
-let ThirdParty = require("supertokens-node/recipe/thirdparty");
+let ThirdPartyEmailPassword = require("supertokens-node/recipe/thirdpartyemailpassword");
 
 const apiPort = process.env.REACT_APP_API_PORT || 3001;
 const apiDomain = process.env.REACT_APP_API_URL || `http://localhost:${apiPort}`;
@@ -22,20 +22,20 @@ supertokens.init({
         websiteDomain
     },
     recipeList: [
-        ThirdParty.init({
+        ThirdPartyEmailPassword.init({
             signInAndUpFeature: {
                 providers: [
-                    ThirdParty.Google({
+                    ThirdPartyEmailPassword.Google({
                         clientSecret: process.env.GOOGLE_CLIENT_SECRET,
                         clientId: process.env.GOOGLE_CLIENT_ID
                     }),
-                    ThirdParty.Github({
+                    ThirdPartyEmailPassword.Github({
                         clientSecret: process.env.GITHUB_CLIENT_SECRET,
                         clientId: process.env.GITHUB_CLIENT_ID
                     }),
 
-                    // we have commented the below because our app domain (thirdparty.demo.supertokens.io) is not approved by Facebook since it's only a demo app.
-                    // ThirdParty.Facebook({
+                    // we have commented the below because our app domain (ThirdPartyEmailPassword.demo.supertokens.io) is not approved by Facebook since it's only a demo app.
+                    // ThirdPartyEmailPassword.Facebook({
                     //     clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
                     //     clientId: process.env.FACEBOOK_CLIENT_ID
                     // })
