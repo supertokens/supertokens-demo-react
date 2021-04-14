@@ -10,3 +10,7 @@
 ## See thirdparty recipe demo
 - [Code](https://github.com/supertokens/supertokens-demo-react/tree/thirdparty)
 - [Live demo](https://thirdparty.demo.supertokens.io)
+
+## See thirdpartyemailpassword recipe demo
+- [Code](https://github.com/supertokens/supertokens-demo-react/tree/thirdpartyemailpassword)
+- [Live demo](https://thirdpartyemailpassword.demo.supertokens.io)
