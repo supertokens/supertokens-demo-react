@@ -41,7 +41,7 @@ function App() {
       <Router>
         <div className="fill">
           <Switch>
-            {getSuperTokensRoutesForReactRouterDom()}
+            {getSuperTokensRoutesForReactRouterDom(require("react-router-dom"))}
             <Route path="/">
               <EmailPassword.EmailPasswordAuth>
                 <Home />
