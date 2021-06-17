@@ -15,9 +15,8 @@ jobs:
             ssh ubuntu@ssh.supertokens.io '\
               cd /home/ubuntu/supertokens-demo-react-thirdpartyemailpassword && \
               git reset --hard && \
-              git checkout master && \
+              git checkout thirdpartyemailpassword && \
               git pull && \
-              git checkout `git describe --match "[0-9]*" --abbrev=0 --tags $(git rev-list --tags --max-count=1)` && \
               npm i && \
               REACT_APP_API_PORT=10001 REACT_APP_API_URL=https://api-thirdpartyemailpassword.demo.supertokens.io REACT_APP_WEBSITE_PORT=10000 REACT_APP_WEBSITE_URL=https://thirdpartyemailpassword.demo.supertokens.io npm run build && \
               docker rm demo-app-thirdpartyemailpassword -f || true && \
