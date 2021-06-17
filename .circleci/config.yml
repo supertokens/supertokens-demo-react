@@ -15,9 +15,8 @@ jobs:
             ssh ubuntu@ssh.supertokens.io '\
               cd /home/ubuntu/supertokens-demo-react && \
               git reset --hard && \
-              git checkout master && \
+              git checkout emailpassword && \
               git pull && \
-              git checkout `git describe --match "[0-9]*" --abbrev=0 --tags $(git rev-list --tags --max-count=1)` && \
               npm i && \
               REACT_APP_API_PORT=10001 REACT_APP_API_URL=https://api-emailpassword.demo.supertokens.io REACT_APP_WEBSITE_PORT=10000 REACT_APP_WEBSITE_URL=https://emailpassword.demo.supertokens.io npm run build && \
               docker rm demo-app -f || true && \
