@@ -17,6 +17,8 @@ jobs:
               git reset --hard && \
               git checkout thirdpartyemailpassword && \
               git pull && \
+              rm package-lock.json && \
+              rm -rf node_modules && \
               npm i && \
               REACT_APP_API_PORT=10001 REACT_APP_API_URL=https://api-thirdpartyemailpassword.demo.supertokens.io REACT_APP_WEBSITE_PORT=10000 REACT_APP_WEBSITE_URL=https://thirdpartyemailpassword.demo.supertokens.io npm run build && \
               docker rm demo-app-thirdpartyemailpassword -f || true && \
